@@ -7,7 +7,6 @@ export function VerteilerModel(props) {
   const groupRef = useRef()
   const [hovered, setHovered] = useState(false)
   const dragging = useRef(false)
-  const lastClientX = useRef(0)
   const unhoverTimeoutRef = useRef(null);
   
   // Smoothly interpolate the scale each frame.
@@ -18,24 +17,6 @@ export function VerteilerModel(props) {
       groupRef.current.scale.lerp({ x: targetScale, y: targetScale, z: targetScale }, 0.1);
     }
   });
-
-  // Handle rotation on drag.
-  const onPointerDown = (e) => {
-    dragging.current = true;
-    lastClientX.current = e.clientX;
-  }
-
-  const onPointerMove = (e) => {
-    if (dragging.current && groupRef.current) {
-      const deltaX = e.clientX - lastClientX.current;
-      groupRef.current.rotation.y += deltaX * 0.01;
-      lastClientX.current = e.clientX;
-    }
-  }
-
-  const onPointerUp = () => {
-    dragging.current = false;
-  }
 
   // Handle hover with delayed unhover.
   const handlePointerOver = (e) => {
@@ -66,20 +47,8 @@ export function VerteilerModel(props) {
         scale={40}  // initial scale
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
-        onPointerDown={(e) => {
-          e.stopPropagation();
-          onPointerDown(e);
-        }}
-        onPointerMove={(e) => {
-          e.stopPropagation();
-          onPointerMove(e);
-        }}
-        onPointerUp={(e) => {
-          e.stopPropagation();
-          onPointerUp(e);
-        }}
       >
-        <mesh
+      <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cylinder020.geometry}

@@ -13,16 +13,17 @@ useGLTF.preload('/raspberrypi.glb');
 export default function Canva() {
 
         return (
-          <Canvas dpr={[1, 1.5]}camera={{
+          <Canvas dpr={[1, 1.5]}
+            camera={{
             position: [0, 2, 10],
-            fov: 45,        
-            near: 0.1,   
-            far: 1000,      
+            fov: 45,
+            near: 0.1,
+            far: 1000,
           }}
           style={{ height: '100vh', width: '100vw' }}>
             <ambientLight intensity={1.2} />
-          <Environment preset="sunset"  />
-          <Suspense fallback={null /* or a loading component */}>
+          <Environment preset="sunset" />
+          <Suspense fallback={null}>
             <VerteilerModel></VerteilerModel>
             <GestellModel></GestellModel>
             <RaspberrypiModel></RaspberrypiModel>
@@ -30,5 +31,4 @@ export default function Canva() {
             <Preload all />
           </Canvas>
         );
-
 }
