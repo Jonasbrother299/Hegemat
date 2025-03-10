@@ -4,7 +4,7 @@ import { useGLTF, Html } from '@react-three/drei'
 import * as THREE from 'three';
 
 export function RaspberrypiModel(props) {
-  const { nodes, materials } = useGLTF('../public/raspberrypi.glb')
+  const { nodes, materials } = useGLTF('/raspberrypi.glb')
   const groupRef = useRef()
   const [hovered, setHovered] = useState(false)
   const unhoverTimeoutRef = useRef(null)
@@ -248,4 +248,4 @@ export function RaspberrypiModel(props) {
   );
 }
 
-useGLTF.preload('../public/raspberrypi.glb');
+useGLTF.preload('/raspberrypi.glb');

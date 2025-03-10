@@ -4,7 +4,7 @@ import { useGLTF, Html } from '@react-three/drei'
 import * as THREE from 'three';
 
 export function GestellModel(props) {
-  const { nodes, materials } = useGLTF('../public/Gestell.glb')
+  const { nodes, materials } = useGLTF('/Gestell.glb')
   const groupRef = useRef()
   const [hovered, setHovered] = useState(false)
   const dragging = useRef(false)
@@ -127,4 +127,4 @@ export function GestellModel(props) {
   );
 }
 
-useGLTF.preload('../public/Gestell.glb');
+useGLTF.preload('/Gestell.glb');

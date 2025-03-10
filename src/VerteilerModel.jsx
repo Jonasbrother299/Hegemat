@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import { useGLTF, Html } from '@react-three/drei';
 
 export function VerteilerModel(props) {
-  const { nodes, materials } = useGLTF('../public/VERTEILER!.glb')
+  const { nodes, materials } = useGLTF('/VERTEILER!.glb')
   const groupRef = useRef()
   const [hovered, setHovered] = useState(false)
   const dragging = useRef(false)
@@ -114,4 +114,4 @@ export function VerteilerModel(props) {
   )
 }
 
-useGLTF.preload('../public/VERTEILER!.glb')
+useGLTF.preload('/VERTEILER!.glb')
