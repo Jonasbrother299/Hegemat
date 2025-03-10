@@ -18,7 +18,7 @@ function PreOrderSection() {
         <div className="preorder-details">
           <h2>Pre-Order Now</h2>
           <h3>Experience Innovation Firsthand</h3>
-          <p className="preorder-price">$299.99</p>
+          <p className="preorder-price">$499.99</p>
           <button className="preorder-button" onClick={() => setModalOpen(true)}>
             Pre-Order
           </button>

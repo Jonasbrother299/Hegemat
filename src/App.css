@@ -73,7 +73,7 @@ body, html, #root, .App {
 .hero-section {
   height: 100vh;
   width: 100vw;
-  background-image: url('/InnoLabHeroSection.png');
+  background-image: url('/InnoLabHeroSection.webp');
   background-size: cover;
   background-position: center;
   display: flex;
