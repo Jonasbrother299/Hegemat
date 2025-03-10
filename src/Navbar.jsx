@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className="nav-container">
         <div className="navbar">
         <img
-        src="../public/logo.webp"
+        src="/logo.webp"
         alt="Logo"
         className={`logoImg ${showLogo ? "visible" : "hidden"}`}
       />

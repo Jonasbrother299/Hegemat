@@ -1,11 +1,15 @@
-import { Canvas, useFrame } from '@react-three/fiber';
-import React, { useRef } from 'react';
-import { Environment, OrbitControls } from '@react-three/drei';
-
+import { Canvas } from '@react-three/fiber';
+import React, { Suspense } from 'react';
+import { Environment } from '@react-three/drei';
+import { Preload, useGLTF} from '@react-three/drei';
 import { RaspberrypiModel } from './raspberrypiModel';
 import { VerteilerModel } from './VerteilerModel';
 import { GestellModel } from './GestellModel';
 
+// Preload your models
+useGLTF.preload('/VERTEILER.glb');
+useGLTF.preload('/Gestell.glb');
+useGLTF.preload('/raspberrypi.glb');
 export default function Canva() {
 
         return (
@@ -26,9 +30,12 @@ export default function Canva() {
                 shadow-mapSize-height={1024}
               />
           <Environment preset="sunset"  />
+          <Suspense fallback={null /* or a loading component */}>
             <VerteilerModel></VerteilerModel>
             <GestellModel></GestellModel>
             <RaspberrypiModel></RaspberrypiModel>
+            </Suspense>
+            <Preload all />
           </Canvas>
         );
 
